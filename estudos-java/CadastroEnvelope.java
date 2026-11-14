@@ -10,15 +10,23 @@ public class CadastroEnvelope {
         System.out.println("Digite o valor separado em centavos: ");
         int separado = leitor.nextInt();
 
-        System.out.println("Digite o valor gasto em centavos");
+        System.out.println("Digite o valor gasto em centavos: ");
         int gasto = leitor.nextInt();
-        
-        int disponivel = separado - gasto;
 
-        System.out.println("Envelope: " + nome);
-        System.out.println("Valor separado em centavos: " + separado);
-        System.out.println("Valor gasto em centavos: " + gasto);
-        System.out.println("Valor disponível em centavos: " + disponivel);
+        if (separado < 0 || gasto < 0) {
+            System.out.println("Valor inválido");
+            System.out.println("Os valores não podem ser negativos.");
+        } else if (gasto > separado) {
+            System.out.println("Gasto não permitido.");
+            System.out.println("O valor gasto é maior que o valor separado.");
+        } else {
+            int disponivel = separado - gasto;
+
+            System.out.println("Envelop: " + nome);
+            System.out.println("Valor separado em centavos: " + gasto);
+            System.out.println("Valor gasto em centavos: " + gasto);
+            System.out.println("Valor disponível em centavos: " + disponivel);
+        }
 
         leitor.close();
     }
